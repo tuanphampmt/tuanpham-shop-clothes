@@ -1,0 +1,124 @@
+<% include layout/header.ejs %>
+
+<div class="clearfix">
+</div>
+<div class="page-index">
+    <div class="container">
+        <p>
+            Home - CheckOut
+        </p>
+    </div>
+</div>
+</div>
+<div class="clearfix">
+</div>
+<div class="container_fullwidth">
+    <div class="container">
+        <div class="row">
+            <% include layout/right.ejs%>
+            <div class="col-md-9">
+                <div class="checkout-page">
+                    <ol class="checkout-steps">
+                        <li class="steps">
+                            <div class="step-title">
+                                <a href="/login">
+                                    01. Login
+                                </a>
+                            </div>
+                        </li>
+                        <li class="steps active">
+                            <a href="/register" class="step-title">
+                                02. register
+                            </a>
+                            <div class="step-description">
+                                <form action="/register" method="post">
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="your-details">
+                                                <h5>
+                                                    Your Persional Details
+                                                </h5>
+                                                <div class="form-row">
+                                                    <label class="lebel-abs">
+                                                        Full Name
+                                                        <strong class="red">
+                                                            *
+                                                        </strong>
+                                                    </label>
+                                                    <input type="text" class="input namefild" name="username">
+                                                </div>
+                                                <div class="form-row">
+                                                    <label class="lebel-abs">
+                                                        Email
+                                                        <strong class="red">
+                                                            *
+                                                        </strong>
+                                                    </label>
+                                                    <input type="email" class="input namefild" name="email">
+                                                </div>
+
+                                                <div class="pass-wrap">
+                                                    <div class="form-row">
+                                                        <label class="lebel-abs">
+                                                            Your Password
+                                                            <strong class="red">
+                                                                *
+                                                            </strong>
+                                                        </label>
+                                                        <input type="password" class="input namefild" name="password">
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <label class="lebel-abs">
+                                                            Confird Your Password
+                                                            <strong class="red">
+                                                                *
+                                                            </strong>
+                                                        </label>
+                                                        <input type="password" class="input cpass" name="passwordConf">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <p class="privacy"><span class="input-radio"><input type="radio"
+                                                                                                name="user"></span>
+                                                <span class="text">I have read and agree to the <a href="#" class="red">Privacy Policy</a></span>
+                                            </p>
+                                            <div class="your-details">
+                                                <button type="submit" >REGISTER</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+                        <li class="steps">
+                            <a href="#" class="step-title">
+                                03. billing information
+                            </a>
+                        </li>
+                        <li class="steps">
+                            <a href="#" class="step-title">
+                                04. Shipping information
+                            </a>
+                        </li>
+                        <li class="steps">
+                            <a href="#" class="step-title">
+                                05. shipping method
+                            </a>
+                        </li>
+                        <li class="steps">
+                            <a href="#" class="step-title">
+                                06. payment information
+                            </a>
+                        </li>
+                        <li class="steps">
+                            <a href="#" class="step-title">
+                                07. oder review
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix">
+        </div>
+<% include layout/footer.ejs %>

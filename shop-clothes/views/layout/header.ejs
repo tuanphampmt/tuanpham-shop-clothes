@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/images/favicon.png">
+    <title>Welcome to FlatShop</title>
+    <link href="/stylesheets/bootstrap.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,700,500italic,100italic,100'
+          rel='stylesheet' type='text/css'>
+    <link href="/stylesheets/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/flexslider.css" type="text/css" media="screen"/>
+    <link href="/stylesheets/sequence-looptheme.css" rel="stylesheet" media="all"/>
+    <link href="/stylesheets/style.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script><![endif]-->
+</head>
+<body id="home">
+<div class="wrapper">
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 col-sm-2">
+                    <div class="logo"><a href="/"><img src="/images/logo.png" alt="FlatShop"></a></div>
+                </div>
+                <div class="col-md-10 col-sm-10">
+                    <div class="header_top">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <ul class="option_nav">
+                                    <li class="dorpdown">
+                                        <a href="#">Eng</a>
+                                        <ul class="subnav">
+                                            <li><a href="#">Eng</a></li>
+                                            <li><a href="#">Vns</a></li>
+                                            <li><a href="#">Fer</a></li>
+                                            <li><a href="#">Gem</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dorpdown">
+                                        <a href="#">USD</a>
+                                        <ul class="subnav">
+                                            <li><a href="#">USD</a></li>
+                                            <li><a href="#">UKD</a></li>
+                                            <li><a href="#">FER</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="topmenu">
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">News</a></li>
+                                    <li><a href="#">Service</a></li>
+                                    <li><a href="#">Recruiment</a></li>
+                                    <li><a href="#">Media</a></li>
+                                    <li><a href="#">Support</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                <% if(typeof user === 'undefined') { %>
+                                    <ul class="usermenu">
+                                        <li><a href="/login" class="log">Login</a></li>
+                                        <li><a href="/register" class="reg">Register</a></li>
+                                    </ul>
+                                <% }  else { %>
+                                    <ul class="usermenu">
+                                        <li><a href="/login" class="log"><%= user.username %></a></li>
+                                        <li><a href="/register" class="reg">Register</a></li>
+                                    </ul>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+
+                    <div class="header_bottom">
+                        <ul class="option">
+                            <li id="search" class="search">
+                                <form><input class="search-submit" type="submit" value=""><input class="search-input"
+                                                                                                 placeholder="Enter your search term..."
+                                                                                                 type="text" value=""
+                                                                                                 name="search"></form>
+                            </li>
+
+                            <li class="option-cart">
+                                <% if (session.cart) {
+                                %>
+                                    <a href="/cart" class="cart-icon">cart <span
+                                                class="cart_no"><%= session.cart.totalItems %></span></a>
+                                    <ul class="option-cart-item">
+                                        <% if(cartData) { cartData.forEach((cart) => {
+                                        %>
+                                            <li>
+                                                <div class="cart-item">
+                                                    <div class="image"><img src="<%= cart.item.path %>"
+                                                                            alt="">
+                                                    </div>
+                                                    <div class="item-description">
+                                                        <p class="name" style="font-size: 10px"><%= cart.item.name %></p>
+                                                        <p>Size: <span class="light-red">One size</span><br>Quantity:
+                                                            <span class="light-red"><%= cart.quantity %></span></p>
+                                                    </div>
+                                                    <div class="right">
+                                                        <p class="price" style="font-size: 13px">$<%= cart.total %></p>
+                                                        <a href="/remove.<%= cart.item._id %>" class="remove"><img src="/images/remove.png"
+                                                                                                                   alt="remove"></a>
+                                                    </div>
+                                                </div>
+
+                                            </li>
+                                        <% })} %>
+                                        <li>
+                                            <span class="total">Total<strong style="font-size: 19px">$<%= session.cart.totalPrice %></strong></span>
+                                            <button class="checkout" onClick="location.href='checkout.html'">CheckOut
+                                            </button>
+                                        </li>
+                                    </ul>
+                                <% }  else { %>
+                                    <a href="#" class="cart-icon">cart <span class="cart_no">0</span></a>
+                                    <ul class="option-cart-item">
+                                        <li><span class="total">Total <strong>$0.00</strong></span>
+                                            <button class="checkout" onClick="location.href='checkout.html'">CheckOut
+                                            </button>
+                                        </li>
+                                    </ul>
+                                <% } %>
+                            </li>
+                        </ul>
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                                    data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span><span
+                                        class="icon-bar"></span><span class="icon-bar"></span><span
+                                        class="icon-bar"></span></button>
+                        </div>
+                        <div class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav">
+                                <li class="active dropdown">
+                                    <a href="/" class="dropdown-toggle" data-toggle="dropdown">Home</a>
+                                </li>
+                                <li><a href="/productgird">men</a></li>
+                                <li><a href="/productlitst">women</a></li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Fashion</a>
+                                    <div class="dropdown-menu mega-menu">
+                                        <div class="row">
+                                            <div class="col-md-6 col-sm-6">
+                                                <ul class="mega-menu-links">
+                                                    <li><a href="/productgird">New Collection</a></li>
+                                                    <li><a href="/productgird">Shirts & tops</a></li>
+                                                    <li><a href="/productgird">Laptop & Brie</a></li>
+                                                    <li><a href="/productgird">Dresses</a></li>
+                                                    <li><a href="/productgird">Blazers & Jackets</a></li>
+                                                    <li><a href="/productgird">Shoulder Bags</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6">
+                                                <ul class="mega-menu-links">
+                                                    <li><a href="/productgird">New Collection</a></li>
+                                                    <li><a href="/productgird">Shirts & tops</a></li>
+                                                    <li><a href="/productgird">Laptop & Brie</a></li>
+                                                    <li><a href="/productgird">Dresses</a></li>
+                                                    <li><a href="/productgird">Blazers & Jackets</a></li>
+                                                    <li><a href="/productgird">Shoulder Bags</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li><a href="/productgird">gift</a></li>
+                                <li><a href="/productgird">kids</a></li>
+                                <li><a href="/productgird">blog</a></li>
+                                <li><a href="/productgird">jewelry</a></li>
+                                <li><a href="/contact">contact us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

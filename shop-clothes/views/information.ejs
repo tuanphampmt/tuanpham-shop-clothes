@@ -1,0 +1,162 @@
+<% include layout/header.ejs %>
+
+<div class="clearfix">
+</div>
+<div class="page-index">
+    <div class="container">
+        <p>
+            Home - CheckOut
+        </p>
+    </div>
+</div>
+</div>
+<div class="clearfix">
+</div>
+<div class="container_fullwidth">
+    <div class="container">
+        <div class="row">
+            <% include layout/right.ejs %>
+            <div class="col-md-9">
+                <div class="checkout-page">
+                    <ol class="checkout-steps">
+                        <li class="steps">
+                            <div class="step-title">
+                                <a href="/login">
+                                    01. Login
+                                </a>
+                            </div>
+                        </li>
+                        <li class="steps">
+                            <div class="step-title">
+                                <a href="/register">
+                                    02. Register
+                                </a>
+                            </div>
+                        </li>
+                        <li class="steps active">
+                            <a href="/information" class="step-title">
+                                03. billing information
+                            </a>
+                            <div class="step-description">
+                                <form action="/information" method="post">
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="your-details">
+                                                <h5>
+                                                    Your Address
+                                                </h5>
+                                                <div class="form-row">
+                                                    <label class="lebel-abs">
+                                                        Telephone
+                                                        <strong class="red">
+                                                            *
+                                                        </strong>
+                                                    </label>
+                                                    <input type="text" class="input namefild" name="telephone">
+                                                </div>
+                                                <div class="form-row">
+                                                    <label class="lebel-abs">
+                                                        Fax
+                                                        <strong class="red">
+                                                            *
+                                                        </strong>
+                                                    </label>
+                                                    <input type="text" class="input namefild" name="fax">
+                                                </div>
+                                                <div class="form-row">
+                                                    <label class="lebel-abs">
+                                                        Company
+                                                        <strong class="red">
+                                                            *
+                                                        </strong>
+                                                    </label>
+                                                    <input type="text" class="input namefild" name="company">
+                                                </div>
+                                                <div class="your-details">
+                                                    <div class="form-row">
+                                                        <label class="lebel-abs">
+                                                            Address
+                                                            <strong class="red">
+                                                                *
+                                                            </strong>
+                                                        </label>
+                                                        <input type="text" class="input namefild" name="address">
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <label class="lebel-abs">
+                                                            City
+                                                            <strong class="red">
+                                                                *
+                                                            </strong>
+                                                        </label>
+                                                        <input type="text" class="input namefild" name="city">
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <label class="lebel-abs">
+                                                            Pass Code
+                                                            <strong class="red">
+                                                                *
+                                                            </strong>
+                                                        </label>
+                                                        <input type="text" class="input namefild" name="passCode">
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <label class="lebel-abs">
+                                                            Country
+                                                            <strong class="red">
+                                                                *
+                                                            </strong>
+                                                        </label>
+                                                        <input type="text" class="input namefild" name="country">
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <label class="lebel-abs">
+                                                            Region / State
+                                                            <strong class="red">
+                                                                *
+                                                            </strong>
+                                                        </label>
+                                                        <input type="text" class="input namefild" name="state">
+                                                    </div>
+
+                                                </div>
+                                                <p><span class="input-radio"><input type="radio" name="user"></span>
+                                                    <span class="text">I wish to subscribe to the Herbal Store newsletter.</span>
+                                                </p>
+                                                <p><span class="input-radio"><input type="radio" name="user"></span>
+                                                    <span class="text">My delivery and billing addresses are the same.</span>
+                                                </p>
+                                                <button type="submit">Continue</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+                        <li class="steps">
+                            <a href="#" class="step-title">
+                                04. Shipping information
+                            </a>
+                        </li>
+                        <li class="steps">
+                            <a href="#" class="step-title">
+                                05. shipping method
+                            </a>
+                        </li>
+                        <li class="steps">
+                            <a href="#" class="step-title">
+                                06. payment information
+                            </a>
+                        </li>
+                        <li class="steps">
+                            <a href="#" class="step-title">
+                                07. oder review
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix">
+        </div>
+        <% include layout/footer.ejs %>
